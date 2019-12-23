@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/dhosttw2/public_html #Add /<sub_folder> if required
-    - /bin cp -r /public/* $DEPLOYPATH #copy all from sub folder root
+    - /bin cp -r public/* $DEPLOYPATH #copy all from sub folder root
