@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\IssueRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ProjectCrudController
+ * Class IssueCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class ProjectCrudController extends CrudController
+class IssueCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,10 +21,9 @@ class ProjectCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Project');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/project');
-        $this->crud->setEntityNameStrings('project', 'projects');
-       
+        $this->crud->setModel('App\Models\Issue');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/issue');
+        $this->crud->setEntityNameStrings('issue', 'issues');
     }
 
     protected function setupListOperation()
@@ -32,32 +31,32 @@ class ProjectCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         $this->crud->addColumn(
             [    // Select
-                'name' => 'client.name',
-                'label' => 'client.name',
+                'name' => 'project.name',
+                'label' => 'Project',
                 'orderable' => true,
                 'orderLogic' => function ($query, $column, $columnDirection) {
-                    return $query->Join('clients', 'clients.id', '=', 'projects.client_id')
-                        ->orderBy('clients.client_id', $columnDirection)->select('projects.*');
+                    return $query->Join('projects', 'projects.id', '=', 'issues.project_id')
+                        ->orderBy('projects.project_id', $columnDirection)->select('issues.*');
                 }
             ]
         );
         $this->crud->setFromDb();
 
-        $this->crud->removeColumn('client_id');
+        $this->crud->removeColumn('project_id');
+
     }
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(ProjectRequest::class);
-
+        $this->crud->setValidation(IssueRequest::class);
         $this->crud->addField(
             [  // Select
-               'label' => "Clients",
+               'label' => "Projects",
                'type' => 'select',
-               'name' => 'client_id', // the db column for the foreign key
-               'entity' => 'client', // the method that defines the relationship in your Model
+               'name' => 'project_id', // the db column for the foreign key
+               'entity' => 'project', // the method that defines the relationship in your Model
                'attribute' => 'name', // foreign key attribute that is shown to user
-               'model' => "App\Models\Client" // foreign key model
+               'model' => "App\Models\Project" // foreign key model
             ]
         );
         // TODO: remove setFromDb() and manually define Fields

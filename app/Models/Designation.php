@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Designation extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Project extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'projects';
+    protected $table = 'designations';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -34,10 +34,6 @@ class Project extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function client()
-    {
-        return $this->belongsTo("App\Models\Client");
-    }
 
     /*
     |--------------------------------------------------------------------------
