@@ -30,14 +30,23 @@ class NoticeCrudController extends CrudController
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         $this->crud->setFromDb();
+      
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(NoticeRequest::class);
-
+      
         // TODO: remove setFromDb() and manually define Fields
         $this->crud->setFromDb();
+          $this->crud->addField([   // CKEditor
+          'name' => 'Desc',
+          'label' => 'Desc',
+          'type' => 'ckeditor',
+        ]);
+
+        $this->crud->removeField('desc');
+          
     }
 
     protected function setupUpdateOperation()
