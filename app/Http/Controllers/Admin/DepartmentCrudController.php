@@ -47,3 +47,5 @@ class DepartmentCrudController extends CrudController
         $this->setupCreateOperation();
     }
 }
+
+
