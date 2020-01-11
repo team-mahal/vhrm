@@ -13,6 +13,8 @@
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-group"></i> Setups</a>
 	<ul class="nav-dropdown-items">
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issues_type') }}'><i class='nav-icon fa fa-question'></i> Issues_types</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('status') }}'><i class='nav-icon fa fa-question'></i> Statuses</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('client') }}'><i class='nav-icon fa fa-question'></i> Clients</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('project') }}'><i class='nav-icon fa fa-question'></i> Projects</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon fa fa-question'></i> Issues</a></li>

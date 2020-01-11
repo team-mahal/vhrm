@@ -37,4 +37,9 @@ class BackpackUser extends User
     {
         return $this->email;
     }
+
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $this->notify(new App\Notifications\MailResetPasswordNotification($token));
+    // }
 }

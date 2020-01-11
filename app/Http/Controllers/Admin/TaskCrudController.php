@@ -85,8 +85,36 @@ class TaskCrudController extends CrudController
             ]
         );
 
+        $this->crud->addField(
+            [  // Select
+               'label' => "Status",
+               'type' => 'select',
+               'name' => 'status_id', // the db column for the foreign key
+               'entity' => 'Status', // the method that defines the relationship in your Model
+               'attribute' => 'name', // foreign key attribute that is shown to user
+               'model' => "App\Models\Status" // foreign key model
+            ]
+        );
+
+        $this->crud->addField(
+            [  // Select
+               'label' => "start_date",
+               'type' => 'datetime_picker',
+               'name' => 'start_date', // the db column for the foreign key
+            ]
+        );
+        $this->crud->addField(
+            [  // Select
+               'label' => "end_date",
+               'type' => 'datetime_picker',
+               'name' => 'end_date', // the db column for the foreign key
+            ]
+        );
         // TODO: remove setFromDb() and manually define Fields
         $this->crud->setFromDb();
+        $this->crud->removeField('created_by');
+        $this->crud->removeField('careated_at');
+
     }
 
     protected function setupUpdateOperation()

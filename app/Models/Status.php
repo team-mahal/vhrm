@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Auth;
-class Department extends Model
+
+class Status extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Department extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'departments';
+    protected $table = 'statuses';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -52,20 +52,4 @@ class Department extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-
-    public static function boot()
-    {
-       parent::boot();
-       static::creating(function($model)
-       {
-           $user = Auth::user();
-           $model->created_by = $user->id;
-           $model->created_by = $user->id;
-       });
-       static::updating(function($model)
-       {
-           $user = Auth::user();
-           $model->created_by = $user->id;
-       });
-   }
 }
