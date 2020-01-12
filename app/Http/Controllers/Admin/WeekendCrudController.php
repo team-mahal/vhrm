@@ -35,9 +35,25 @@ class WeekendCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(WeekendRequest::class);
-
+        $this->crud->addField([   // CKEditor
+            'name' => 'department_id',
+            'label' => 'Department',
+            'type' => 'select',
+            'entity' => 'department', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Department" // foreign key model
+        ]);
+        $this->crud->addField([   // CKEditor
+            'name' => 'user_id',
+            'label' => 'User',
+            'type' => 'select',
+            'entity' => 'User', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\User" // foreign key model
+        ]);
         // TODO: remove setFromDb() and manually define Fields
         $this->crud->setFromDb();
+        $this->crud->removeField('created_by');
     }
 
     protected function setupUpdateOperation()

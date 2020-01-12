@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-
+use Auth;
 class Weekend extends Model
 {
     use CrudTrait;
@@ -35,6 +35,16 @@ class Weekend extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function department()
+    {
+        return $this->belongsTo("App\Models\Department");
+    }
+
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User");
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -52,5 +62,21 @@ class Weekend extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function($model)
+        {
+                 $user = Auth::user();
+                 $model->created_by = $user->id;
+                 $model->created_by = $user->id;
+        });
+        static::updating(function($model)
+        {
+                 $user = Auth::user();
+                 $model->created_by = $user->id;
+        });
+    }
     
 }

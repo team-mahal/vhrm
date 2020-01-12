@@ -30,6 +30,13 @@ class NoticeCrudController extends CrudController
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         $this->crud->setFromDb();
+        $this->crud->removeColumn('file');
+
+        $this->crud->addColumn([  
+          'name' => 'file',
+          'label' => 'file',
+          'type' => 'image',
+        ]);
       
     }
 
@@ -39,13 +46,47 @@ class NoticeCrudController extends CrudController
       
         // TODO: remove setFromDb() and manually define Fields
         $this->crud->setFromDb();
-          $this->crud->addField([   // CKEditor
-          'name' => 'Desc',
-          'label' => 'Desc',
+        $this->crud->removeField('details');
+        $this->crud->removeField('department_id');
+        $this->crud->removeField('publish_at');
+        $this->crud->removeField('status');
+        $this->crud->removeField('file');
+        $this->crud->addField([   // CKEditor
+          'name' => 'details',
+          'label' => 'details',
           'type' => 'ckeditor',
         ]);
 
-        $this->crud->removeField('desc');
+        $this->crud->addField([   // CKEditor
+            'name' => 'file',
+            'label' => 'file',
+            'upload' => true,
+            'crop' => true,
+            'type' => 'image',
+            'disk' => 'local',
+        ]);
+
+        $this->crud->addField([   // CKEditor
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'enum'
+        ]);
+
+        $this->crud->addField([   // CKEditor
+            'name' => 'publish_at',
+            'label' => 'Publish_at',
+            'type' => 'date_picker'
+        ]);
+
+        $this->crud->addField([   // CKEditor
+            'name' => 'department_id',
+            'label' => 'Department',
+            'type' => 'select',
+            'entity' => 'department', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Department" // foreign key model
+        ]);
+
         $this->crud->removeField('created_by');
     }
 
