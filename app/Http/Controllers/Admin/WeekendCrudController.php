@@ -30,6 +30,7 @@ class WeekendCrudController extends CrudController
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         $this->crud->setFromDb();
+        $this->crud->removeColumn('created_by');
     }
 
     protected function setupCreateOperation()

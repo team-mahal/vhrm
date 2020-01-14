@@ -26,3 +26,5 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('holiday') }}'><i class='nav-icon fa fa-question'></i> Holidays</a></li>
 	</ul>
 </li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('attendance') }}'><i class='nav-icon fa fa-question'></i> Attendances</a></li>
