@@ -28,7 +28,21 @@ class AdminController extends Controller
             trans('backpack::base.dashboard') => false,
         ];
         $user=User::all();
-        $attendance=Attendance::where('date',date("Y-m-d"))->where('user_id',Auth::id())->get();
+        $attendance=Attendance::where('date',date("Y-m-d"))->where('user_id',Auth::id())->get()->first();
         return view(backpack_view('attendance'), $this->data)->with('user',$user)->with('attendance',$attendance);
+    }
+
+    public function checkin(Request $r)
+    {
+    	Attendance::create($r->all());
+    	return redirect()->back();
+    }
+
+    public function attendancesupdate($id)
+    {
+    	$attendance=Attendance::find($id);
+    	$attendance->out_time=date("h:i a");
+    	$attendance->update();
+    	return redirect()->back();
     }
 }

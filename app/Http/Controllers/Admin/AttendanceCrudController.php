@@ -24,6 +24,21 @@ class AttendanceCrudController extends CrudController
         $this->crud->setModel('App\Models\Attendance');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/attendance');
         $this->crud->setEntityNameStrings('attendance', 'attendances');
+        $this->crud->denyAccess(['create','delete','update']);
+        // daterange filter
+        $this->crud->addFilter([
+          'type'  => 'date_range',
+          'name'  => 'from_to',
+          'label' => 'Date range'
+        ],
+          false,
+          function ($value) { // if the filter is active, apply these constraints
+              $dates = json_decode($value);
+              $this->crud->addClause('where', 'date', '>=', $dates->from);
+              $this->crud->addClause('where', 'date', '<=', $dates->to);
+          });
+
+        
     }
 
     protected function setupListOperation()

@@ -93,6 +93,7 @@ final class Versions
   'fzaninotto/faker' => 'v1.9.1@fc10d778e4b84d5bd315dad194661e091d307c6f',
   'hamcrest/hamcrest-php' => 'v2.0.0@776503d3a8e85d4f9a1148614f95b7a608b046ad',
   'laracasts/generators' => '1.1.6@a71d2b705f1e4d0e6b97aa1ba3746907b5bc1f1b',
+  'laravel/ui' => 'v1.1.2@0287d4eee80aad718bdf7f90117cfe720c493064',
   'mockery/mockery' => '1.3.0@5571962a4f733fbb57bede39778f71647fae8e66',
   'myclabs/deep-copy' => '1.9.4@579bb7356d91f9456ccd505f24ca8b667966a0a7',
   'nunomaduro/collision' => 'v3.0.1@af42d339fe2742295a54f6fdd42aaa6f8c4aca68',
@@ -123,7 +124,7 @@ final class Versions
   'sebastian/version' => '2.0.1@99732be0ddb3361e16ad77b68ba41efc8e979019',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
   'webmozart/assert' => '1.6.0@573381c0a64f155a0d9a23f4b0c797194805b925',
-  'laravel/laravel' => 'dev-master@e27eef88998ee3d6a3304286bdeacc6242a62cf1',
+  'laravel/laravel' => 'dev-master@b8ff8d30f015c6fb5a389bee97802eee751f8db4',
 );
 
     private function __construct()

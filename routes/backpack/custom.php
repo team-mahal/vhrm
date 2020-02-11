@@ -13,6 +13,8 @@ Route::group([
 ], function () { // custom admin routes
     Route::get('dashboard',"AdminController@dashboard");
     Route::get('attendances',"AdminController@attendances");
+    Route::get('attendances/update/{id}',"AdminController@attendancesupdate");
+    Route::post('checkin',"AdminController@checkin");
     Route::crud('client', 'ClientCrudController');
     Route::crud('project', 'ProjectCrudController');
     Route::crud('issue', 'IssueCrudController');

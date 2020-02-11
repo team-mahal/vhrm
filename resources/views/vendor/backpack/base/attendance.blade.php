@@ -1,6 +1,6 @@
 @extends(backpack_view('blank'))
 @section('content')
-<form action="{{ url('attendance') }}" method="POST">
+<form action="{{ url('checkin') }}" method="POST">
     @csrf
     <div class="box-body w-50 m-auto card p-5">
         <div class="form-group">
@@ -29,17 +29,28 @@
             </div>
         </div>
         <div class="form-group text-center">
-            <label for="inputEmail3" id="day_year" class="col-sm-6 control-label col-md-offset-3" style="font-size: 22px;">Tuesday, 14 January</label>
+            <label for="inputEmail3" id="day_year" class="col-sm-6 control-label col-md-offset-3" style="font-size: 22px;">{{ Carbon\Carbon::now()->toRfc850String() }}</label>
             <div class="col-sm-12 col-md-offset-3">
 
                 <span id="demo" style="font-size:72px;">7:20:59 AM</span>
+                @if($attendance)
+                    <h3>Today's Check In : {{ $attendance->in_time }}</h3>
+                @endif
+                @if($attendance && $attendance->out_time)
+                    <h3>Today's Check out : {{ $attendance->out_time }}</h3>
+                @endif
             </div>
         </div>
         <div class="box-footer">
             <center>
                 <div class="col-sm-22">
-                    {{ $attendance }}
-                    <button type="submit" class="btn btn-warning btn-sm" name="attendence_button" id="submit_btn"><i class="fa fa-check"></i> Check In</button>
+                    @if($attendance)
+                        @if(!$attendance->out_time)
+                            <a href="{{ url("attendances/update/".$attendance->id) }}" class="btn btn-warning btn-sm" id="submit_btn"><i class="fa fa-check"></i> Check Out</a>
+                        @endif
+                    @else
+                        <button type="submit" class="btn btn-warning btn-sm" id="submit_btn"><i class="fa fa-check"></i> Check In</button>
+                    @endif
                 </div>
             </center>
         </div>

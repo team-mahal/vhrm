@@ -111,6 +111,7 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         array (
             'League\\Flysystem\\Cached\\' => 24,
             'League\\Flysystem\\' => 17,
+            'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
             'Laracasts\\Generators\\' => 21,
         ),
@@ -360,6 +361,10 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
+        'Laravel\\Ui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/ui/src',
+        ),
         'Laravel\\Tinker\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
@@ -526,9 +531,11 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
     );
 
     public static $classMap = array (
+        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
+        'App\\Http\\Controllers\\Admin\\AttendanceCrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AttendanceCrudController.php',
         'App\\Http\\Controllers\\Admin\\ClientCrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ClientCrudController.php',
         'App\\Http\\Controllers\\Admin\\DepartmentCrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DepartmentCrudController.php',
         'App\\Http\\Controllers\\Admin\\DesignationCrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DesignationCrudController.php',
@@ -546,6 +553,7 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/CommentController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -556,6 +564,7 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\AttendanceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AttendanceRequest.php',
         'App\\Http\\Requests\\ClientRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ClientRequest.php',
         'App\\Http\\Requests\\DepartmentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DepartmentRequest.php',
         'App\\Http\\Requests\\DesignationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DesignationRequest.php',
@@ -567,6 +576,7 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         'App\\Http\\Requests\\StatusRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StatusRequest.php',
         'App\\Http\\Requests\\TaskRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TaskRequest.php',
         'App\\Http\\Requests\\WeekendRequest' => __DIR__ . '/../..' . '/app/Http/Requests/WeekendRequest.php',
+        'App\\Models\\Attendance' => __DIR__ . '/../..' . '/app/Models/Attendance.php',
         'App\\Models\\BackpackUser' => __DIR__ . '/../..' . '/app/Models/BackpackUser.php',
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
         'App\\Models\\Department' => __DIR__ . '/../..' . '/app/Models/Department.php',
@@ -728,6 +738,7 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'CommentSeederTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentSeeder.php',
         'CreateRevisionsTable' => __DIR__ . '/..' . '/venturecraft/revisionable/src/migrations/2013_04_09_062329_create_revisions_table.php',
         'Creativeorange\\Gravatar\\Exceptions\\InvalidEmailException' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Exceptions/InvalidEmailException.php',
         'Creativeorange\\Gravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Facades/Gravatar.php',
@@ -2851,6 +2862,13 @@ class ComposerStaticInit7ee6fd305b89fdaa17887a13128d41a5
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
         'Laravel\\Tinker\\TinkerServiceProvider' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerServiceProvider.php',
+        'Laravel\\Ui\\AuthCommand' => __DIR__ . '/..' . '/laravel/ui/src/AuthCommand.php',
+        'Laravel\\Ui\\Presets\\Bootstrap' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Bootstrap.php',
+        'Laravel\\Ui\\Presets\\Preset' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Preset.php',
+        'Laravel\\Ui\\Presets\\React' => __DIR__ . '/..' . '/laravel/ui/src/Presets/React.php',
+        'Laravel\\Ui\\Presets\\Vue' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Vue.php',
+        'Laravel\\Ui\\UiCommand' => __DIR__ . '/..' . '/laravel/ui/src/UiCommand.php',
+        'Laravel\\Ui\\UiServiceProvider' => __DIR__ . '/..' . '/laravel/ui/src/UiServiceProvider.php',
         'League\\Flysystem\\AdapterInterface' => __DIR__ . '/..' . '/league/flysystem/src/AdapterInterface.php',
         'League\\Flysystem\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractAdapter.php',
         'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',
