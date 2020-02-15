@@ -45,4 +45,9 @@ class AdminController extends Controller
     	$attendance->update();
     	return redirect()->back();
     }
+
+    public function taskst()
+    {
+        return view(backpack_view('taskst'));
+    }
 }

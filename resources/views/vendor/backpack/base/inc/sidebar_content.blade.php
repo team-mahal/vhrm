@@ -19,6 +19,7 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('project') }}'><i class='nav-icon fa fa-question'></i> Projects</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon fa fa-question'></i> Issues</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('task') }}'><i class='nav-icon fa fa-question'></i> Tasks</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('taskst') }}'><i class='nav-icon fa fa-question'></i> Tasks1</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('department') }}'><i class='nav-icon fa fa-question'></i> Departments</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('designation') }}'><i class='nav-icon fa fa-question'></i> Designations</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('notice') }}'><i class='nav-icon fa fa-question'></i> Notices</a></li>

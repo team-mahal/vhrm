@@ -12,6 +12,7 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
     Route::get('dashboard',"AdminController@dashboard");
+    Route::get('taskst',"AdminController@taskst");
     Route::get('attendances',"AdminController@attendances");
     Route::get('attendances/update/{id}',"AdminController@attendancesupdate");
     Route::post('checkin',"AdminController@checkin");
