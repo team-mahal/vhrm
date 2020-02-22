@@ -5,10 +5,11 @@
 			<draggable class="list-group" :list="list1" group="people" @change="log">
 				<div
 					class="list-group-item"
-					v-for="(element, index) in list1"
-					:key="element.name"
+					v-for="(task, index) in list1"
+					:key="index"
 				>
-					{{ element.name }} {{ index }}
+					
+					<Model :task="task"/>
 				</div>
 			</draggable>
 		</div>
@@ -18,10 +19,10 @@
 			<draggable class="list-group" :list="list2" group="people" @change="log">
 				<div
 					class="list-group-item"
-					v-for="(element, index) in list2"
-					:key="element.name"
+					v-for="(task, index) in list2"
+					:key="index"
 				>
-					{{ element.name }} {{ index }}
+					<Model :task="task"/>
 				</div>
 			</draggable>
 		</div>
@@ -41,7 +42,6 @@
 				</div>
 			</draggable>
 		</div>
-		<Model/>
 	</div>
 </template>
 <script>
@@ -90,3 +90,8 @@ export default {
 	}
 };
 </script>
+<style>
+	.modal-backdrop{
+		    opacity: .1!important;
+	}
+</style>
