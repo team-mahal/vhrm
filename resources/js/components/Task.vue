@@ -26,22 +26,7 @@
 				</div>
 			</draggable>
 		</div>
-				
-		<div class="col-3">
-			<h3>Draggable 2</h3>
-			<draggable class="list-group" :list="list2" group="people" @change="log">
-				<div
-					class="list-group-item"
-					v-for="(element, index) in list2"
-					:key="element.name"
-					@click="abc(element)"
-					data-toggle="modal"
-					data-target="#exampleModalCenter"
-				>
-					{{ element.name }} {{ index }}
-				</div>
-			</draggable>
-		</div>
+		
 	</div>
 </template>
 <script>

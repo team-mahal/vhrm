@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.4.1",
+        "label-edit": "^0.1.0",
         "vuedraggable": "^2.23.2"
     }
 }
