@@ -1,37 +1,23 @@
 <template>
 	<div class="row">
-		<div class="col-3">
-			<h3>Draggable 1</h3>
-			<draggable class="list-group" :list="list1" group="people" @change="log">
+		<div class="col-3" v-for="statu in status">
+			<h3 class="text-capitalize">{{ statu.name }}</h3>
+			<draggable class="list-group" :list="statu.tasks" group="statu.tasks" @add="add(statu.id)" @change="log">
 				<div
 					class="list-group-item"
-					v-for="(task, index) in list1"
-					:key="index"
-				>
-					
-					<Model :task="task"/>
-				</div>
-			</draggable>
-		</div>
-
-		<div class="col-3">
-			<h3>Draggable 2</h3>
-			<draggable class="list-group" :list="list2" group="people" @change="log">
-				<div
-					class="list-group-item"
-					v-for="(task, index) in list2"
-					:key="index"
+					v-for="(task, index) in statu.tasks"
+					:key="task.id"
 				>
 					<Model :task="task"/>
 				</div>
+				<button slot="footer" @click="addPeople">Add</button>
 			</draggable>
 		</div>
-		
 	</div>
 </template>
 <script>
 import draggable from "vuedraggable";
-
+import axios from 'axios';
 export default {
 	name: "two-lists",
 	display: "Two Lists",
@@ -41,25 +27,26 @@ export default {
 	},
 	data() {
 		return {
-			list1: [
-				{ name: "John", id: 1 },
-				{ name: "Joao", id: 2 },
-				{ name: "Jean", id: 3 },
-				{ name: "Gerard", id: 4 }
-			],
-			list2: [
-				{ name: "Juan", id: 5 },
-				{ name: "Edgard", id: 6 },
-				{ name: "Johnson", id: 7 }
-			]
+			status:[],
+			statu1:[],
+			status_id:0,
+			element:[]
 		};
 	},
 	methods: {
-		abc(element){
-				console.log(element);
+		addPeople(){
+			console.log();
 		},
-		add: function() {
-			this.list.push({ name: "Juan" });
+		abc(element){
+			console.log(element);
+		},
+		add: function(status_id) {
+			axios.post('api/update',{
+				task_id:this.element.element.id,
+				status_id:status_id,
+			}).then((res)=>{
+				console.log(res);
+			})
 		},
 		replace: function() {
 			this.list = [{ name: "Edgard" }];
@@ -70,8 +57,16 @@ export default {
 			};
 		},
 		log: function(evt) {
-			window.console.log(evt);
+			if(evt.added!=undefined){
+				this.element=evt.added;
+			}
 		}
+	},
+	created(){
+		var self = this;
+		axios.get('api/tasks').then((red)=>{
+			self.status=red.data
+		})
 	}
 };
 </script>
