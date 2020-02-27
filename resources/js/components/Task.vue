@@ -10,7 +10,10 @@
 				>
 					<Model :task="task"/>
 				</div>
-				<button slot="footer" @click="addPeople">Add</button>
+				<div v-if="isadd==statu.id">
+					<textarea name="" id="" cols="30" class="form-control" rows="2" v-on:keyup.enter="submit"></textarea>
+				</div>
+				<button slot="footer" @click="addPeople(statu.id)">Add</button>
 			</draggable>
 		</div>
 	</div>
@@ -30,12 +33,34 @@ export default {
 			status:[],
 			statu1:[],
 			status_id:0,
+			isadd:false,
 			element:[]
 		};
 	},
 	methods: {
-		addPeople(){
+		addPeople(id){
 			console.log();
+			this.isadd=id;
+		},
+		submit(e){
+			var self = this;
+			console.log(this.status);
+			console.log(e.target.value.length);
+			if(e.target.value.length>3){
+				console.log(this.isadd);
+				axios.post('api/task/create',{
+					status_id:this.isadd,
+					task_name:e.target.value,
+				}).then((res)=>{
+					self.status.find(function(element) {
+						if(element.id==res.data.status_id){
+							element.tasks.push(res.data)
+						}
+					});
+					console.log(res.data);
+				})
+				this.isadd=false
+			}
 		},
 		abc(element){
 			console.log(element);

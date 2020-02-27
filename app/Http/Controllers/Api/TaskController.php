@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Status;
 use App\Models\Task;
+use Auth;
 class TaskController extends Controller
 {
     /**
@@ -37,7 +38,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task=new Task();
+        $task->task_name=$request->task_name;
+        $task->issue_id=10;
+        $task->status_id=$request->status_id;
+        $task->created_by=1;
+        $task->save();
+        return $task;
     }
 
     /**

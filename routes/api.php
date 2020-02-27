@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 
 Route::get('/tasks', 'Api\TaskController@index');
 Route::post('/update', 'Api\TaskController@update');
+Route::post('/task/create', 'Api\TaskController@store');
