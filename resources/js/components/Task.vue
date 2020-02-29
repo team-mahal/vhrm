@@ -1,6 +1,6 @@
 <template>
 	<div class="row">
-		<div class="d-flex">
+		<div class="d-flex"> 
 			<div v-for="statu in status">
 				<h3 class="text-capitalize">{{ statu.name }}</h3>
 				<vue-scroll :ops="ops">
