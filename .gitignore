@@ -1,3 +1,4 @@
+/vendor
 /node_modules
 /public/hot
 .env
@@ -11,7 +12,7 @@ yarn-error.log
  
  # later
  # Ignore everything
-*
+
 
 # But not these files...
 !.gitignore
