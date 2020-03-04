@@ -12,7 +12,9 @@ window.Vue = require('vue');
 import Vue from 'vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import vuescroll from 'vuescroll';
+import Multiselect from 'vue-multiselect'
 
+Vue.component('multiselect', Multiselect)
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

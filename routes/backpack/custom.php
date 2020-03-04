@@ -13,6 +13,7 @@ Route::group([
 ], function () { // custom admin routes
     Route::get('dashboard',"AdminController@dashboard");
     Route::get('taskst',"AdminController@taskst");
+    Route::get('issue1',"IssueCrudController@issue1");
     Route::get('attendances',"AdminController@attendances");
     Route::get('attendances/update/{id}',"AdminController@attendancesupdate");
     Route::post('checkin',"AdminController@checkin");

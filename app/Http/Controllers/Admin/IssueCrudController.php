@@ -139,6 +139,11 @@ class IssueCrudController extends CrudController
 
 		protected function setupUpdateOperation()
 		{
-				$this->setupCreateOperation();
+			$this->setupCreateOperation();
+		}
+
+		public function issue1()
+		{
+			return view('admin.issue1');
 		}
 }
